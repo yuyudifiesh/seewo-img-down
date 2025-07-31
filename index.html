@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>希沃系统镜像下载站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#64748B',
+                        neutral: '#F1F5F9',
+                        dark: '#1E293B',
+                        tip: '#10B981',
+                        note: '#3B82F6',
+                        important: '#F59E0B',
+                        caution: '#EF4444',
+                        warning: '#FBBF24'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .file-tree-line {
+                @apply border-l-2 border-gray-300 ml-3 pl-4;
+            }
+            .alert-box {
+                @apply p-4 my-4 rounded-lg flex items-start;
+            }
+            .alert-icon {
+                @apply text-xl mr-3 mt-0.5 flex-shrink-0;
+            }
+            .alert-content {
+                @apply flex-grow;
+            }
+        }
+        
+        /* 全局禁止选择文本 */
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        warning, tip, note, important, caution {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <script>
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            alert('本站内容不可复制，感谢理解！');
+        });
+      
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            alert('本站内容不可剪切，感谢理解！');
+        });
+        
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const alertConfig = {
+                'warning': {
+                    icon: 'fa-exclamation-circle',
+                    bgColor: 'bg-red-50',
+                    borderColor: 'border-red-200',
+                    textColor: 'text-caution'
+                },
+                'tip': {
+                    icon: 'fa-lightbulb-o',
+                    bgColor: 'bg-green-50',
+                    borderColor: 'border-green-200',
+                    textColor: 'text-tip'
+                },
+                'note': {
+                    icon: 'fa-info-circle',
+                    bgColor: 'bg-blue-50',
+                    borderColor: 'border-blue-200',
+                    textColor: 'text-note'
+                },
+                'important': {
+                    icon: 'fa-exclamation-triangle',
+                    bgColor: 'bg-orange-50',
+                    borderColor: 'border-orange-200',
+                    textColor: 'text-important'
+                },
+                'caution': {
+                    icon: 'fa-warning',
+                    bgColor: 'bg-yellow-50',
+                    borderColor: 'border-yellow-200',
+                    textColor: 'text-warning'
+                }
+            };
+
+            Object.keys(alertConfig).forEach(type => {
+                const elements = document.getElementsByTagName(type);
+                Array.from(elements).forEach(el => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = `alert-box ${alertConfig[type].bgColor} ${alertConfig[type].borderColor}`;
+                    
+                    const icon = document.createElement('i');
+                    icon.className = `fa ${alertConfig[type].icon} alert-icon ${alertConfig[type].textColor}`;
+                    
+                    const content = document.createElement('div');
+                    content.className = 'alert-content';
+                    content.innerHTML = el.innerHTML;
+                    
+                    wrapper.appendChild(icon);
+                    wrapper.appendChild(content);
+                    
+                    el.parentNode.replaceChild(wrapper, el);
+                });
+            });
+        });
+    </script>
+
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-bold text-dark mb-2">希沃系统镜像下载站</h1>
+            <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </header>
+
+        <div class="space-y-4 mb-10">
+            <note>
+                <p>若链接失效请您在 <a href="https://github.com/yuyudifiesh/seewo-img-down/issues" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Issues</a> 反馈。</p>
+            </note>
+
+            <important>
+                <p>本站仅提供下载功能，如果您在安装时遇到任何问题，请您自行解决。</p>
+            </important>
+
+            <warning>
+                <p>务必确认您的系统信息是否符合安装包的描述信息！</p>
+            </warning>
+        </div>
+
+        <main>
+            <h2 class="text-2xl font-semibold mb-6 text-dark border-b pb-2">开始安装</h2>
+            <div class="space-y-8">
+                <!-- MT61A-WIN10-H510 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="p-4 bg-neutral">
+                        <h3 class="text-xl font-medium mb-3">MT61A-WIN10-H510</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.123684.com/s/mOHLVv-dqGsh" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 主链接
+                            </a>
+                            <a href="https://www.123912.com/s/mOHLVv-dqGsh" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 备用链接
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-sm text-gray-600 mb-2">包含文件：</p>
+                        <div class="file-tree-line">
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-zip-o text-gray-500 mr-2"></i>
+                                <span>MT61A-HX-H510-Win10ProUEFI(2004)-64Bit-CHSEEWO(V&VI)-221004.zip</span>
+                                <span class="ml-auto text-sm text-gray-500">1.98 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>MT61A-HX-H510-Win10ProUEFI(2004)-64Bit-CHSEEWO(V&VI)-221004.z01</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>MT61A-HX-H510-Win10ProUEFI(2004)-64Bit-CHSEEWO(V&VI)-221004.z02</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>MT61A-HX-H510-Win10ProUEFI(2004)-64Bit-CHSEEWO(V&VI)-221004.z03</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MT21-win10|MT23-win10 通用版 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="p-4 bg-neutral">
+                        <h3 class="text-xl font-medium mb-3">MT21-win10|MT23-win10 通用版</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.123684.com/s/mOHLVv-3qGsh" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 主链接
+                            </a>
+                            <a href="https://www.123912.com/s/mOHLVv-3qGsh" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 备用链接
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-sm text-gray-600 mb-2">包含文件：</p>
+                        <div class="file-tree-line">
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-folder text-yellow-500 mr-2"></i>
+                                <span>GHO</span>
+                            </div>
+                            <div class="file-tree-line">
+                                <div class="flex items-center py-1">
+                                    <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                    <span>MT21、MT23-HX-WIN10Pro-64bit-CHSEEWO-AC3165-190819.GHO</span>
+                                    <span class="ml-auto text-sm text-gray-500">32.51 GB</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-zip-o text-gray-500 mr-2"></i>
+                                <span>MT21、MT23-HX-WIN10Pro-64bit-CHSEEWO-AC3165-190819.zip</span>
+                                <span class="ml-auto text-sm text-gray-500">1.26 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MT21-HX-WIN10PRO -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="p-4 bg-neutral">
+                        <h3 class="text-xl font-medium mb-3">MT21-HX-WIN10PRO</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.123684.com/s/mOHLVv-AqGsh" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 主链接
+                            </a>
+                            <a href="https://www.123912.com/s/mOHLVv-AqGsh" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 备用链接
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-sm text-gray-600 mb-2">包含文件：</p>
+                        <div class="file-tree-line">
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-zip-o text-gray-500 mr-2"></i>
+                                <span>MT21-HX-WIN10Pro-64bit-CHSEEWO-AC3165-190819-small.zip</span>
+                                <span class="ml-auto text-sm text-gray-500">1011.60 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MT61A-HX-H510-WIN10PRO-UEFI -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="p-4 bg-neutral">
+                        <h3 class="text-xl font-medium mb-3">MT61A-HX-H510-WIN10PRO-UEFI</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.123684.com/s/mOHLVv-9qGsh" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 主链接
+                            </a>
+                            <a href="https://www.123912.com/s/mOHLVv-9qGsh" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 备用链接
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-sm text-gray-600 mb-2">包含文件：</p>
+                        <div class="file-tree-line">
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-zip-o text-gray-500 mr-2"></i>
+                                <span>MT61A-HX-H510-Win10ProUEFI(2004)-64Bit-CHSEEWO(V&VI)-221004.zip</span>
+                                <span class="ml-auto text-sm text-gray-500">1.98 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他文件 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="p-4 bg-neutral">
+                        <h3 class="text-xl font-medium mb-3">其他文件</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.123684.com/s/mOHLVv-QqGsh" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 主链接
+                            </a>
+                            <a href="https://www.123912.com/s/mOHLVv-QqGsh" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 transition-colors text-sm flex items-center" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-link mr-1"></i> 备用链接
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-sm text-gray-600 mb-2">包含文件：</p>
+                        <div class="file-tree-line">
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>IMAGE.GHO</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>IMAGE001.GHS</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>IMAGE002.GHS</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>IMAGE003.GHS</span>
+                                <span class="ml-auto text-sm text-gray-500">4.00 GB</span>
+                            </div>
+                            <div class="flex items-center py-1">
+                                <i class="fa fa-file-o text-gray-500 mr-2"></i>
+                                <span>IMAGE004.GHS</span>
+                                <span class="ml-auto text-sm text-gray-500">1.71 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>Copyright © 2025 Yuyudifiesh</p>
+        </footer>
+    </div>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
